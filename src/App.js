@@ -16,3 +16,7 @@ function App() {
 }
 
 export default App;
+<<<<<<< HEAD
+=======
+
+>>>>>>> ubuntu

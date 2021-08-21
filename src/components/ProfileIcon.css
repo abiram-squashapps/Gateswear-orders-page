@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .profileicon__container {
   display: flex;
   height: 100%;
@@ -22,3 +23,29 @@
   display: flex;
   flex-direction: column;
 }
+=======
+.profileicon__container {
+  display: flex;
+  height: 100%;
+  width: 20%;
+  padding: 5px;
+  justify-content: space-around;
+  align-items: center;
+}
+.profileicon__avatar {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profileicon__avatar img {
+  height: 100%;
+}
+.profileicon__details {
+  display: flex;
+  flex-direction: column;
+}
+>>>>>>> ubuntu
