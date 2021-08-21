@@ -1,0 +1,79 @@
+.datatable {
+  background: #ffffff;
+}
+.datatable__container {
+  position: relative;
+}
+
+.filter__btn {
+  position: absolute !important;
+  right: 10% !important;
+  top: 24px !important;
+  z-index: 10 !important;
+  appearance: none;
+  border: none;
+  background: #ffffff;
+}
+.addBuyer__btn {
+  position: absolute !important;
+  right: 2% !important;
+  top: 20px !important;
+  z-index: 10 !important;
+  appearance: none;
+  border: none;
+  background: #d0ef11;
+  padding: 5px 10px;
+}
+tr:nth-child(even) {
+  background: #f2f2f2;
+}
+th {
+  background: #f2f2f2;
+  font-size: x-small;
+  padding: 20px 1px;
+}
+td {
+  font-size: x-small;
+  padding: 20px 1px;
+  text-align: center;
+}
+th input {
+  width: 80% !important;
+  margin: auto;
+  appearance: none;
+  outline: none;
+  border: none;
+  background: #ffffff !important;
+  border: 1px solid #787777;
+  border-radius: 3px;
+  padding: 5px !important;
+}
+.p-datatable-header {
+  font-weight: 700 !important;
+  padding: 25px;
+}
+.slNo {
+  text-align: center !important;
+}
+.p-paginator {
+  display: flex;
+  font-size: x-small;
+  align-items: center;
+  justify-content: flex-start !important;
+  padding: 5px;
+}
+.p-dropdown-panel {
+  background: #ffffff !important;
+  font-size: x-small;
+  text-align: center;
+  padding: 5px;
+}
+.p-dropdown-item:hover {
+  background: #f2f2f2 !important;
+  border-bottom: 1px solid grey;
+}
+.p-inputtext {
+  font-size: xx-small !important;
+  padding: 2px;
+  background: #f2f2f2;
+}

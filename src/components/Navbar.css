@@ -1,0 +1,18 @@
+.navbar {
+  width: 100%;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  min-height: 50px;
+  margin-bottom: 30px;
+  display: flex;
+}
+.navbar input {
+  border: none;
+  padding: 20px 40px;
+  width: 80%;
+  background: none;
+  outline: none;
+  font-size: medium !important;
+}
+.navbar i {
+  padding: 0 20px;
+}

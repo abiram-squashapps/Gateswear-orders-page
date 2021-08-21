@@ -1,0 +1,33 @@
+.sidebargroup__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 30px;
+}
+.sidebargroup__mainheading {
+  color: #e7f788;
+  margin-bottom: 0;
+}
+.sidebargroup__subheading {
+  color: #ffffff99;
+  margin-top: 0;
+  font-size: small;
+}
+.sidebargroup__button {
+  width: 100%;
+  display: flex;
+  appearance: none;
+  border: none;
+  background: #1b283b;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 1rem;
+}
+.sidebargroup__button:focus {
+  background: #3d495b;
+}
+.sidebargroup__button p {
+  color: #ffffffcc;
+  margin-left: 20px;
+}

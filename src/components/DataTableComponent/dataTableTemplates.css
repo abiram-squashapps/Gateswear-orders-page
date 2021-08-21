@@ -1,0 +1,17 @@
+.name__template__container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.name__template__image {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 5px;
+}
+.name__template__image img {
+  height: 100%;
+}
