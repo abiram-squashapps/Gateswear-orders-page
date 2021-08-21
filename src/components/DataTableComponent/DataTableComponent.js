@@ -6,7 +6,7 @@ import { buyers } from "../../constant/buyersData";
 import { Button } from "primereact/button";
 import { nameTemplate, template2 } from "./dataTableTemplates";
 
-function DataTableComponent() {
+function DataTableComponent({ setShow }) {
   const [filter, setFilter] = useState(false);
   const [first2, setFirst2] = useState(0);
   const [rows2, setRows2] = useState(10);
@@ -29,7 +29,7 @@ function DataTableComponent() {
         onClick={(e) => setFilter((prev) => !prev)}
         icon={!filter ? "pi pi-filter" : "pi pi-filter-slash"}
       />
-      <Button label="Add new" className="addBuyer__btn" />
+      <Button label="Add new" className="addBuyer__btn" onClick={setShow} />
       <DataTable
         value={buyersArray}
         header="Buyers"
