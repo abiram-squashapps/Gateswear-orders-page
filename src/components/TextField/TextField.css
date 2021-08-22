@@ -1,0 +1,27 @@
+.p-dropdown {
+  border: 1px solid gray !important;
+  height: 20px;
+  padding: 5px;
+  margin-top: 5px !important;
+  border-radius: 3px;
+  background-color: #f4f4f4;
+}
+.p-field {
+  height: auto;
+  font-size: smaller;
+}
+input {
+  height: 20px !important;
+  appearance: none;
+  border: 1px solid gray;
+  margin-top: 5px !important;
+  border-radius: 3px;
+}
+.p-field label {
+  margin-bottom: 25px !important;
+}
+.p-inputtextarea {
+  height: 70px;
+  margin-top: 5px !important;
+  border-radius: 3px;
+}

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./AddBuyers.css";
-import placeholder from "../../assets/images/imgplaceholder.png";
-import edit from "../../assets/images/edit.png";
+
 import TextFieldComponent, {
   HalfSizeField,
   TextAreaField,
 } from "../TextField/TextFieldComponent";
+import ImgInput from "../TextField/ImgInput";
+import { Button } from "primereact/button";
 
 function AddBuyers() {
   const [imgUrl, setImgUrl] = useState("");
@@ -14,32 +15,7 @@ function AddBuyers() {
   const handleFormData = () => {};
   return (
     <div className="p-fluid p-formgrid p-grid px-3 ">
-      {" "}
-      <div className="p-field p-col-12 imginput ">
-        <label
-          htmlFor="address"
-          className="flex flex-column justify-content-center align-items-center  "
-        >
-          {!imgUrl && (
-            <div className="edit__button">
-              <img src={edit} alt="edit" />
-            </div>
-          )}{" "}
-          <div className="image__container">
-            <img
-              src={imgUrl ? imgUrl : placeholder}
-              alt="placeholder"
-              className={imgUrl ? "fullimage" : "null"}
-            />
-          </div>
-        </label>
-        <input
-          id="address"
-          type="file"
-          onChange={(e) => setImgUrl(URL.createObjectURL(e.target.files[0]))}
-          onClick={(e) => setImgUrl("")}
-        />
-      </div>
+      <ImgInput imgUrl={imgUrl} setImgUrl={setImgUrl} />
       <TextFieldComponent
         label="Buisness Name"
         value={formData.name}
@@ -79,6 +55,7 @@ function AddBuyers() {
           label="Country"
           value={formData.country}
           name="country"
+          type="dropDown"
           onChange={handleFormData}
         />
       </div>
@@ -86,6 +63,7 @@ function AddBuyers() {
         <HalfSizeField
           label="State"
           name="state"
+          type="dropDown"
           value={formData.state}
           onChange={handleFormData}
         />
@@ -93,6 +71,7 @@ function AddBuyers() {
           label="City"
           name="city"
           value={formData.city}
+          type="dropDown"
           onChange={handleFormData}
         />
       </div>
@@ -123,6 +102,13 @@ function AddBuyers() {
           value={formData.website}
           onChange={handleFormData}
         />
+        <div className="flex justify-content-between w-full px-2">
+          <div className="p-col-6 small__orangefont">+ Add address</div>
+          <div className="p-col-6 mt-7">
+            <Button label="cancel" className="cancel__btn mr-3" />
+            <Button label="submit" className="submit__btn" />
+          </div>
+        </div>
       </div>
     </div>
   );

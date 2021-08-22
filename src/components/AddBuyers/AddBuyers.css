@@ -20,6 +20,7 @@
   border: 1px solid grey;
   background: #e7f788;
   overflow: hidden;
+  margin-left: 6px;
 }
 .fullimage {
   height: 100%;
@@ -33,8 +34,26 @@
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  left: 75px;
-  top: 15px;
+  left: 65px;
+  top: 3px;
   z-index: 200;
   box-shadow: 0 0 3px 1px grey;
+}
+.submit__btn {
+  appearance: none;
+  border: none;
+  background: #d0ef11;
+  padding: 5px 10px;
+}
+.cancel__btn {
+  appearance: none;
+  border: none;
+  background: white;
+  color: #999da0;
+  padding: 5px 10px;
+  border: 1px solid #dce2f0;
+}
+.small__orangefont {
+  color: #d01010;
+  font-size: x-small;
 }
