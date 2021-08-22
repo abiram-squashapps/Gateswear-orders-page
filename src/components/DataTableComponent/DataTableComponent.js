@@ -4,13 +4,15 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { buyers } from "../../constant/buyersData";
 import { Button } from "primereact/button";
-import { nameTemplate, template2 } from "./dataTableTemplates";
+import { emailTemplate, nameTemplate, template2 , totalOrderTemplate , websiteTemplate } from "./dataTableTemplates";
+import action from "../../assets/images/action.png"
 
 function DataTableComponent({ setShow }) {
   const [filter, setFilter] = useState(false);
   const [first2, setFirst2] = useState(0);
   const [rows2, setRows2] = useState(10);
   const [buyersArray, setBuyersArray] = useState([]);
+
   useEffect(() => {
     let buyersData = buyers.data.map((item, index) => ({
       ...item,
@@ -18,12 +20,20 @@ function DataTableComponent({ setShow }) {
     }));
     setBuyersArray(buyersData);
   }, []);
+
   const onCustomPage2 = (event) => {
     setFirst2(event.first);
     setRows2(event.rows);
   };
+
+  const actionTemplate = () => {
+    return <div onClick={e=>setShow(true)} className="w-full h-3rem flex align-items-center justify-content-center cursor-pointer">
+    <img src={action} alt="..." />
+  </div>
+  }
+
   return (
-    <div className="datatable__container">
+    <div className="datatable__container"  >
       <Button
         className="filter__btn"
         onClick={(e) => setFilter((prev) => !prev)}
@@ -48,62 +58,69 @@ function DataTableComponent({ setShow }) {
           header="name"
           body={nameTemplate}
           sortable
+          className="text-left"
           filter={filter}
         ></Column>
         <Column
           field="contactPerson"
           header="contact person"
           filter={filter}
+          className="w-7rem text-left" 
           sortable
         ></Column>
         <Column
           field="contactNumber"
           header="contact Number"
           filter={filter}
+          className="w-7rem text-left"
           sortable
         ></Column>
         <Column
           field="address"
           header="Address"
           filter={filter}
+          className="text-left"
           sortable
         ></Column>
         <Column
           filter={filter}
           field="phone"
           header="phone"
-          className="w-6rem"
+          className="w-6rem text-left"
           sortable
         ></Column>
         <Column
           filter={filter}
           field="faxNo"
           header="Fax No"
-          className="w-5rem"
+          className="w-5rem text-left"
           sortable
         ></Column>
         <Column
           filter={filter}
           field="emailId"
           header="email"
-          className="min-w-max"
+          className="min-w-max text-left"
+          body={emailTemplate}
           sortable
         ></Column>
         <Column
           filter={filter}
           field="website"
           header="Website"
-          className="min-w-max"
+          className="min-w-max text-left"
+          body={websiteTemplate}
           sortable
+
         ></Column>
         <Column
           filter={filter}
-          field="totalOrers"
           header="Total Orders"
-          className="w-5rem"
+          className="w-5rem text-left"
+          body={totalOrderTemplate}
           sortable
         ></Column>
-        <Column header="Actions" className="w-3rem"></Column>
+        <Column header="Actions" body={actionTemplate} className="w-3rem text-center" ></Column>
       </DataTable>
     </div>
   );

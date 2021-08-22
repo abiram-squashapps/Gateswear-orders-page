@@ -15,3 +15,6 @@
 .name__template__image img {
   height: 100%;
 }
+.name__template__container .spread{
+  margin-right: 5px;
+}

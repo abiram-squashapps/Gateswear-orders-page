@@ -1,16 +1,24 @@
 import "./dataTableTemplates.css";
 import { Dropdown } from "primereact/dropdown";
+import website from '../../assets/images/website.png'
+import email from '../../assets/images/email.png'
+import action from '../../assets/images/action.png'
+
 export const nameTemplate = (rowData) => {
   return (
     <div className="name__template__container">
       <div className="name__template__image">
         <img src={rowData.logo} alt="logo" />
       </div>
+      <div>
       <p>{rowData.name}</p>
+      {rowData.ongoing && <p>ongoing</p> }
+
+      </div>
     </div>
   );
 };
-
+// this is for pagination
 export const template2 = {
   layout: "RowsPerPageDropdown CurrentPageReport PrevPageLink NextPageLink",
   RowsPerPageDropdown: (options) => {
@@ -55,3 +63,27 @@ export const template2 = {
     );
   },
 };
+
+export const totalOrderTemplate = (rowData) => {
+  return <p style={{color:'green',fontSize:'small'}}>{rowData.totalOrers}</p>
+}
+
+export const actionTemplate = (setShow) => {
+  return <div className="w-full h-full flex align-items-center justify-content-center">
+    <img src={action} alt="..." />
+  </div>
+}
+
+export const websiteTemplate = (rowData) => {
+  return<div className="name__template__container " >
+    <img src={website} alt="add" className="mr-2" />
+    <span>{rowData.website}</span>
+  </div>
+}
+
+export const emailTemplate = (rowData) => {
+  return <div className="name__template__container ">
+    <img src={email} alt="e" className="mr-2"/>
+    <span>{rowData.emailId}</span>
+  </div>
+}

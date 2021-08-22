@@ -13,6 +13,7 @@ export const buyers = {
       emailId: "abiram@squashapps.com",
       website: "squashapps.com",
       totalOrers: "+255k",
+      ongoing:true,
     },
     {
       id: "d2",
@@ -26,6 +27,7 @@ export const buyers = {
       emailId: "abiram@squashapps.com",
       website: "squashapps.com",
       totalOrers: "+255k",
+      ongoing:false,
     },
     {
       id: "d3",
@@ -39,6 +41,7 @@ export const buyers = {
       emailId: "abiram@squashapps.com",
       website: "squashapps.com",
       totalOrers: "+255k",
+      ongoing:false,
     },
     {
       id: "d4",
@@ -52,6 +55,7 @@ export const buyers = {
       emailId: "abiram@squashapps.com",
       website: "squashapps.com",
       totalOrers: "+255k",
+      ongoing:true,
     },
     {
       id: "d5",
@@ -65,6 +69,7 @@ export const buyers = {
       emailId: "abiram@squashapps.com",
       website: "squashapps.com",
       totalOrers: "+255k",
+      ongoing:false,
     },
   ],
 };
