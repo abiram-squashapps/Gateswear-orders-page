@@ -5,7 +5,7 @@ export default function reducer(state, action) {
   switch (action.type) {
     case "ADD_BUYER":
       return { ...state, buyers: [...state.buyers, action.payload] };
-    case "DELETE_USER":
+    case "DELETE_BUYER":
       return {
         ...state,
         buyers: state.buyers.filter((item) => item.id !== action.payload),

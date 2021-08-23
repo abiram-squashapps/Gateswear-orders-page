@@ -3,6 +3,7 @@ import "./DataTableComponent.css";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 //import { buyers } from "../../constant/buyersData";
+import { Card } from "primereact/card";
 import { Button } from "primereact/button";
 import {
   emailTemplate,
@@ -34,13 +35,22 @@ function DataTableComponent({ setShow }) {
     setRows2(event.rows);
   };
 
-  const actionTemplate = () => {
+  const actionTemplate = (rowData) => {
     return (
-      <div
-        onClick={(e) => setShow(true)}
-        className="w-full h-3rem flex align-items-center justify-content-center cursor-pointer"
-      >
-        <img src={action} alt="..." />
+      <div className=" actions__container w-full h-3rem flex align-items-center justify-content-center cursor-pointer ">
+        {/* <div className="actions__container">
+          <img src={action} alt="..." />
+        </div> */}
+        <div className="flex flex-column">
+          <Button icon="pi pi-pencil" className="white__button" />
+          <Button
+            icon="pi pi-trash"
+            className="white__button"
+            onClick={(e) =>
+              dispatch({ type: "DELETE_BUYER", payload: rowData.id })
+            }
+          />
+        </div>
       </div>
     );
   };

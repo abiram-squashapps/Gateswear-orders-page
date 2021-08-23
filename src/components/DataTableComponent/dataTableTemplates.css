@@ -31,3 +31,20 @@
   flex-direction: column;
   justify-content: center;
 }
+.actions__container {
+  position: relative;
+}
+#actions__card {
+  position: absolute;
+  left: -190%;
+  top: 0%;
+  z-index: 1000;
+  background-color: teal;
+  width: 100px;
+}
+.white__button {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  margin-bottom: 3px;
+}

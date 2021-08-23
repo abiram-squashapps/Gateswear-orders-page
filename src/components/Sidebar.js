@@ -40,7 +40,7 @@ function Sidebar() {
     },
   ];
   return (
-    <Card>
+    <Card id="sidebar__card">
       <div className="sidebar__header">
         <h1>Gates Wears</h1>
       </div>
