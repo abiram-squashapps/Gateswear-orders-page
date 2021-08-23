@@ -41,7 +41,7 @@ export const template2 = {
           options={dropdownOptions}
           onChange={options.onChange}
           appendTo={document.body}
-          className="border-bottom-1 "
+          className="border-bottom-1 m-0 h-full custom-dropdown "
         />
       </>
     );

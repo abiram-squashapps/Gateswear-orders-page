@@ -70,7 +70,7 @@ th input {
   width: 30px;
   box-shadow: 0 5px 3px 2px rgba(0, 0, 0, 0.2);
 }
-.p-dropdown-item{
+.p-dropdown-item {
   margin-bottom: 5px;
 }
 .p-dropdown-item:hover {
@@ -144,7 +144,7 @@ th input {
   font-size: x-small;
   align-items: center;
   justify-content: flex-start !important;
-  padding: 5px;
+  padding: 10px;
 }
 .p-dropdown-panel {
   background: #ffffff !important;
@@ -156,8 +156,11 @@ th input {
   background: #f2f2f2 !important;
   border-bottom: 1px solid grey;
 }
-.p-inputtext {
+.custom-dropdown {
   font-size: xx-small !important;
-  padding: 2px;
-  background: #f2f2f2;
+  background-color: white !important;
+  border: none !important;
+}
+.p-inputtext {
+  background-color: white;
 }
