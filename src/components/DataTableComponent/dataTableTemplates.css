@@ -15,6 +15,13 @@
 .name__template__image img {
   height: 100%;
 }
-.name__template__container .spread{
+.name__template__container .spread {
   margin-right: 5px;
+}
+.pill {
+  font-size: xx-small;
+  background-color: #eec945;
+  border-radius: 65px;
+  text-align: center;
+  padding: 2px;
 }
