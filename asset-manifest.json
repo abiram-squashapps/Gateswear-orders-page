@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Gateswear-orders-page/static/css/main.323a7709.chunk.css",
-    "main.js": "/Gateswear-orders-page/static/js/main.891b949e.chunk.js",
-    "main.js.map": "/Gateswear-orders-page/static/js/main.891b949e.chunk.js.map",
+    "main.css": "/Gateswear-orders-page/static/css/main.a07c3843.chunk.css",
+    "main.js": "/Gateswear-orders-page/static/js/main.44cebd80.chunk.js",
+    "main.js.map": "/Gateswear-orders-page/static/js/main.44cebd80.chunk.js.map",
     "runtime-main.js": "/Gateswear-orders-page/static/js/runtime-main.63dfdf5c.js",
     "runtime-main.js.map": "/Gateswear-orders-page/static/js/runtime-main.63dfdf5c.js.map",
     "static/css/2.725bfed7.chunk.css": "/Gateswear-orders-page/static/css/2.725bfed7.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.5476fd5f.chunk.js.map": "/Gateswear-orders-page/static/js/2.5476fd5f.chunk.js.map",
     "index.html": "/Gateswear-orders-page/index.html",
     "static/css/2.725bfed7.chunk.css.map": "/Gateswear-orders-page/static/css/2.725bfed7.chunk.css.map",
-    "static/css/main.323a7709.chunk.css.map": "/Gateswear-orders-page/static/css/main.323a7709.chunk.css.map",
+    "static/css/main.a07c3843.chunk.css.map": "/Gateswear-orders-page/static/css/main.a07c3843.chunk.css.map",
     "static/js/2.5476fd5f.chunk.js.LICENSE.txt": "/Gateswear-orders-page/static/js/2.5476fd5f.chunk.js.LICENSE.txt",
     "static/media/primeicons.css": "/Gateswear-orders-page/static/media/primeicons.e61f3495.woff"
   },
@@ -18,7 +18,7 @@
     "static/js/runtime-main.63dfdf5c.js",
     "static/css/2.725bfed7.chunk.css",
     "static/js/2.5476fd5f.chunk.js",
-    "static/css/main.323a7709.chunk.css",
-    "static/js/main.891b949e.chunk.js"
+    "static/css/main.a07c3843.chunk.css",
+    "static/js/main.44cebd80.chunk.js"
   ]
 }
