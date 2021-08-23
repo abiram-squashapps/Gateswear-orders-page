@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./AddBuyers.css";
+import { Context } from "../../store/ContextProvider";
+import ErrorMsgDispaly from "../commonComponents/ErrorMsgDispaly";
 
 import TextFieldComponent, {
   HalfSizeField,
@@ -7,14 +9,130 @@ import TextFieldComponent, {
 } from "../TextField/TextFieldComponent";
 import ImgInput from "../TextField/ImgInput";
 import { Button } from "primereact/button";
+import uuid from "uuid/dist/v1";
 
-function AddBuyers() {
+function AddBuyers({ setShow }) {
   const [imgUrl, setImgUrl] = useState("");
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    name: "",
+    contactPerson: "",
+    contactNumber: "",
+    address: "",
+    postal: "",
+    faxNo: "",
+    phone: "",
+    emailId: "",
+    website: "",
+  });
+  const [city, setCity] = useState("");
+  const [states, setStates] = useState("");
+  const [country, setCountry] = useState("");
+  const { globalState, dispatch } = useContext(Context);
+  const [formValidity, setFormValidity] = useState(true);
 
-  const handleFormData = () => {};
+  const cities = [
+    { name: "New York", code: "NY" },
+    { name: "Rome", code: "RM" },
+    { name: "London", code: "LDN" },
+    { name: "Istanbul", code: "IST" },
+    { name: "Paris", code: "PRS" },
+  ];
+  const countries = [
+    { name: "Australia", code: "AU" },
+    { name: "Brazil", code: "BR" },
+    { name: "China", code: "CN" },
+    { name: "Egypt", code: "EG" },
+    { name: "France", code: "FR" },
+    { name: "Germany", code: "DE" },
+    { name: "India", code: "IN" },
+    { name: "Japan", code: "JP" },
+    { name: "Spain", code: "ES" },
+    { name: "United States", code: "US" },
+  ];
+  const stateList = [
+    { name: "Maharastra" },
+    { name: "Karnataka" },
+    { name: "Andra" },
+    { name: "TamilNadu" },
+    { name: "Kerala" },
+  ];
+
+  const handleFormData = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleCityChange = (e) => {
+    setCity(e.value);
+  };
+  const handleCountryChange = (e) => {
+    setCountry(e.value);
+  };
+  const handleStatesChange = (e) => {
+    setStates(e.value);
+  };
+
+  /*  useEffect(() => {
+    validateForm();
+  }, [formData, country, city, states]); */
+
+  const validateForm = () => {
+    const {
+      name,
+      contactPerson,
+      contactNumber,
+      address,
+      postal,
+      faxNo,
+      phone,
+      emailId,
+      website,
+    } = formData;
+    if (
+      name.length &&
+      contactNumber.length &&
+      contactPerson.length &&
+      address.length &&
+      postal.length &&
+      faxNo.length &&
+      phone.length &&
+      emailId.length &&
+      website.length &&
+      imgUrl.length &&
+      country.length &&
+      states.length &&
+      city.length
+    ) {
+      setFormValidity(true);
+      return true;
+    } else {
+      setFormValidity(false);
+      return false;
+    }
+  };
+
+  const handleSubmit = (e) => {
+    if (validateForm()) {
+      let payload = {
+        ...formData,
+        logo: imgUrl,
+        ongoing: true,
+        totalOrers: `+${Math.round(Math.random() * 300)}k`,
+        id: uuid(),
+      };
+      dispatch({ type: "ADD_BUYER", payload });
+      setShow(false);
+    } else {
+      window.alert("please check the in");
+    }
+  };
+
   return (
     <div className="p-fluid p-formgrid p-grid px-3 ">
+      {!formValidity && <ErrorMsgDispaly />}
       <ImgInput imgUrl={imgUrl} setImgUrl={setImgUrl} />
       <TextFieldComponent
         label="Buisness Name"
@@ -53,26 +171,29 @@ function AddBuyers() {
         />
         <HalfSizeField
           label="Country"
-          value={formData.country}
+          value={country}
+          options={countries}
           name="country"
           type="dropDown"
-          onChange={handleFormData}
+          onChange={handleCountryChange}
         />
       </div>
       <div className="grid px-2">
         <HalfSizeField
           label="State"
+          options={stateList}
           name="state"
           type="dropDown"
-          value={formData.state}
-          onChange={handleFormData}
+          value={states}
+          onChange={handleStatesChange}
         />
         <HalfSizeField
           label="City"
           name="city"
-          value={formData.city}
+          value={city}
           type="dropDown"
-          onChange={handleFormData}
+          options={cities}
+          onChange={handleCityChange}
         />
       </div>
       <div className="grid px-2">
@@ -106,7 +227,12 @@ function AddBuyers() {
           <div className="p-col-6 small__orangefont">+ Add address</div>
           <div className="p-col-6 mt-7">
             <Button label="cancel" className="cancel__btn mr-3" />
-            <Button label="submit" className="submit__btn" />
+            <Button
+              label="submit"
+              className="submit__btn"
+              /* disabled={!formValidity} */
+              onClick={handleSubmit}
+            />
           </div>
         </div>
       </div>

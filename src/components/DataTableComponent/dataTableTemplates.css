@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  padding: 10px 0;
 }
 .name__template__image {
   height: 30px;
@@ -24,4 +25,9 @@
   border-radius: 65px;
   text-align: center;
   padding: 2px;
+}
+.name__template__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

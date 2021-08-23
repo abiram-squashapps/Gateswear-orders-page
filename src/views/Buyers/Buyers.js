@@ -6,10 +6,11 @@ import AddBuyers from "../../components/AddBuyers/AddBuyers";
 
 function Buyers() {
   const [show, setShow] = useState(true);
+
   return (
     <div>
       <Dialog visible={show} onHide={(e) => setShow(false)} header="Add buyers">
-        <AddBuyers />
+        <AddBuyers setShow={setShow} />
       </Dialog>
       <DataTableComponent setShow={setShow} />
     </div>

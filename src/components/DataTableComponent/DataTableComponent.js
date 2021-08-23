@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./DataTableComponent.css";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
-import { buyers } from "../../constant/buyersData";
+//import { buyers } from "../../constant/buyersData";
 import { Button } from "primereact/button";
 import {
   emailTemplate,
@@ -12,20 +12,22 @@ import {
   websiteTemplate,
 } from "./dataTableTemplates";
 import action from "../../assets/images/action.png";
+import { Context } from "../../store/ContextProvider";
 
 function DataTableComponent({ setShow }) {
   const [filter, setFilter] = useState(false);
   const [first2, setFirst2] = useState(0);
   const [rows2, setRows2] = useState(10);
   const [buyersArray, setBuyersArray] = useState([]);
+  const { globalState, dispatch } = useContext(Context);
 
   useEffect(() => {
-    let buyersData = buyers.data.map((item, index) => ({
+    let buyersData = globalState.buyers.map((item, index) => ({
       ...item,
       slNo: index + 1,
     }));
     setBuyersArray(buyersData);
-  }, []);
+  }, [globalState.buyers]);
 
   const onCustomPage2 = (event) => {
     setFirst2(event.first);
@@ -91,7 +93,7 @@ function DataTableComponent({ setShow }) {
           field="address"
           header="Address"
           filter={filter}
-          className="text-left"
+          className="text-left w-15rem"
           sortable
         ></Column>
         <Column

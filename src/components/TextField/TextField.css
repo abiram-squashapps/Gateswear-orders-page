@@ -1,14 +1,13 @@
 .p-dropdown {
   border: 1px solid gray !important;
   height: 20px;
-  padding: 5px;
   margin-top: 5px !important;
   border-radius: 3px;
   background-color: #f4f4f4;
 }
 .p-field {
   height: auto;
-  font-size: smaller;
+  font-size: small;
 }
 input {
   height: 20px !important;
@@ -24,4 +23,7 @@ input {
   height: 70px;
   margin-top: 5px !important;
   border-radius: 3px;
+}
+.p-dropdown-label {
+  padding-top: 2px !important;
 }

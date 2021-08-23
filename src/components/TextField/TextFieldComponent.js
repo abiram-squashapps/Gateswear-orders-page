@@ -4,19 +4,32 @@ import { InputTextarea } from "primereact/inputtextarea";
 import { Dropdown } from "primereact/dropdown";
 import "./TextField.css";
 
-function TextFieldComponent({ label, value, onChange }) {
+function TextFieldComponent({ label, value, onChange, name }) {
   return (
     <div className="p-field col-12">
       <label htmlFor={label}>
         {label}
         <sup className="small__orangefont ml-1">*</sup>
       </label>
-      <InputText id={label} onChange={onChange} value={value} required />
+      <InputText
+        name="name"
+        id={label}
+        onChange={onChange}
+        value={value}
+        required
+      />
     </div>
   );
 }
 
-export const HalfSizeField = ({ label, value, onChange, type }) => {
+export const HalfSizeField = ({
+  label,
+  value,
+  onChange,
+  type,
+  options,
+  name,
+}) => {
   return (
     <div className="p-field col-6 ">
       <label htmlFor={label}>
@@ -24,22 +37,43 @@ export const HalfSizeField = ({ label, value, onChange, type }) => {
         <sup className="small__orangefont ml-1">*</sup>
       </label>
       {type === "dropDown" ? (
-        <Dropdown id={label} value={value} onChange={onChange} required />
+        <Dropdown
+          className="bg-white flex align-items-center"
+          id={label}
+          value={value}
+          options={options}
+          optionLabel={"name"}
+          optionValue={"name"}
+          onChange={onChange}
+          required
+        />
       ) : (
-        <InputText id={label} value={value} onChange={onChange} required />
+        <InputText
+          name={name}
+          id={label}
+          value={value}
+          onChange={onChange}
+          required
+        />
       )}
     </div>
   );
 };
 
-export const TextAreaField = ({ label, value, onChange }) => {
+export const TextAreaField = ({ label, value, onChange, name }) => {
   return (
     <div className="p-field col-12">
       <label htmlFor={label}>
         {label}
         <sup className="small__orangefont ml-1">*</sup>
       </label>
-      <InputTextarea od={label} onChange={onChange} value={value} required />
+      <InputTextarea
+        name={name}
+        id={label}
+        onChange={onChange}
+        value={value}
+        required
+      />
     </div>
   );
 };

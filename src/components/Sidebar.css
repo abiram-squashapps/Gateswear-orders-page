@@ -2,6 +2,7 @@
   background: #1b283b !important;
   height: 100vh;
   width: 17vw;
+  overflow-y: auto;
 }
 .sidebar__header h1 {
   font-size: 32px;

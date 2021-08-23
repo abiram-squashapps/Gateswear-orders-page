@@ -10,9 +10,9 @@ export const nameTemplate = (rowData) => {
       <div className="name__template__image">
         <img src={rowData.logo} alt="logo" />
       </div>
-      <div>
-        <p>{rowData.name}</p>
-        {rowData.ongoing && <p className="pill">ongoing</p>}
+      <div className="name__template__details">
+        <p className="m-0">{rowData.name}</p>
+        {rowData.ongoing && <p className="pill mt-1">ongoing</p>}
       </div>
     </div>
   );

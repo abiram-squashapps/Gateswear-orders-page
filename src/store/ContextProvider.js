@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from "react";
 import reducer, { initialState } from "./reduer";
 
-const Context = createContext();
+export const Context = createContext();
 
 function ContextProvider({ children }) {
   const [globalState, dispatch] = useReducer(reducer, initialState);

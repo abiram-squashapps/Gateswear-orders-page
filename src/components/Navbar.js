@@ -6,7 +6,7 @@ import ProfileIcon from "./ProfileIcon";
 function Navbar() {
   return (
     <div className="navbar">
-      <span className="p-input-icon-left w-full">
+      <span className="p-input-icon-left w-full flex align-items-center">
         <i className="pi pi-search" />
         <InputText placeholder="Search" />
       </span>
