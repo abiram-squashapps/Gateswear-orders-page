@@ -15,8 +15,8 @@ function AddBuyers({ setShow }) {
   const [imgUrl, setImgUrl] = useState("");
   const [formData, setFormData] = useState({
     name: "",
-    contactPerson: "",
     contactNumber: "",
+    contactPerson: "",
     address: "",
     postal: "",
     faxNo: "",
@@ -29,6 +29,26 @@ function AddBuyers({ setShow }) {
   const [country, setCountry] = useState("");
   const { globalState, dispatch } = useContext(Context);
   const [formValidity, setFormValidity] = useState(true);
+
+  useEffect(() => {
+    if (globalState.editThis) {
+      const { editThis } = globalState;
+      setFormData({
+        name: editThis.name,
+        contactNumber: editThis.contactNumber,
+        contactPerson: editThis.contactPerson,
+        address: editThis.address,
+        postal: editThis.postal,
+        faxNo: editThis.faxNo,
+        phone: editThis.phone,
+        emailId: editThis.emailId,
+        website: editThis.website,
+      });
+      setImgUrl(editThis.logo);
+      setCountry(editThis.country);
+      setStates(editThis.states);
+    }
+  }, [globalState]);
 
   const cities = [
     { name: "New York", code: "NY" },
@@ -123,10 +143,18 @@ function AddBuyers({ setShow }) {
         totalOrers: `+${Math.round(Math.random() * 300)}k`,
         id: uuid(),
       };
-      dispatch({ type: "ADD_BUYER", payload });
+      //submit action for add buyer and edit action for edit buyer
+      globalState.editThis
+        ? dispatch({
+            type: "EDIT_BUYER",
+            payload: { ...payload, id: globalState.editThis.id },
+          })
+        : dispatch({ type: "ADD_BUYER", payload });
       setShow(false);
+      //cleadring editThis prop to make the form default to add buyer
+      dispatch({ type: "EDIT_THIS", payload: false });
     } else {
-      window.alert("please check the in");
+      window.alert("please make sure every input is entered");
     }
   };
 
@@ -226,9 +254,16 @@ function AddBuyers({ setShow }) {
         <div className="flex justify-content-between w-full px-2">
           <div className="p-col-6 small__orangefont">+ Add address</div>
           <div className="p-col-6 mt-7">
-            <Button label="cancel" className="cancel__btn mr-3" />
             <Button
-              label="submit"
+              label="Cancel"
+              className="cancel__btn mr-3"
+              onClick={(e) => {
+                setShow(false);
+                dispatch({ type: "EDIT_THIS", payload: false });
+              }}
+            />
+            <Button
+              label={globalState.editThis ? "Update" : "Submit"}
               className="submit__btn"
               /* disabled={!formValidity} */
               onClick={handleSubmit}

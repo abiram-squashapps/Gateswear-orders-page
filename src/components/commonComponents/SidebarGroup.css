@@ -29,5 +29,8 @@
 }
 .sidebargroup__button p {
   color: #ffffffcc;
-  margin-left: 20px;
+}
+.sidebargroup__img {
+  width: 30px;
+  margin-right: 10px;
 }

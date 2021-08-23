@@ -17,6 +17,8 @@ export default function reducer(state, action) {
           item.id === action.payload.id ? action.payload : item
         ),
       };
+    case "EDIT_THIS":
+      return { ...state, editThis: action.payload };
     default:
       return state;
   }

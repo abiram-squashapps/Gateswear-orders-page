@@ -38,17 +38,21 @@ function DataTableComponent({ setShow }) {
   const actionTemplate = (rowData) => {
     return (
       <div className=" actions__container w-full h-3rem flex align-items-center justify-content-center cursor-pointer ">
-        {/* <div className="actions__container">
-          <img src={action} alt="..." />
-        </div> */}
         <div className="flex flex-column">
-          <Button icon="pi pi-pencil" className="white__button" />
+          <Button
+            icon="pi pi-pencil"
+            className="white__button"
+            onClick={(e) => {
+              setShow(true);
+              dispatch({ type: "EDIT_THIS", payload: rowData });
+            }}
+          />
           <Button
             icon="pi pi-trash"
             className="white__button"
-            onClick={(e) =>
-              dispatch({ type: "DELETE_BUYER", payload: rowData.id })
-            }
+            onClick={(e) => {
+              dispatch({ type: "DELETE_BUYER", payload: rowData.id });
+            }}
           />
         </div>
       </div>

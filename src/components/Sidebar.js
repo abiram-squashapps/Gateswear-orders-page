@@ -49,6 +49,7 @@ function Sidebar() {
           heading={item.heading}
           subHeading={item.subTitle}
           buttons={item.buttons}
+          key={item.heading}
         />
       ))}
     </Card>

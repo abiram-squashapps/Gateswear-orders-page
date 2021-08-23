@@ -9,7 +9,9 @@ function SidebarGroup({ heading, subHeading, buttons }) {
       <p className="sidebargroup__subheading">{subHeading}</p>
       {buttons.map((button) => (
         <Button key={button.label} className="sidebargroup__button">
-          <img src={button.icon} alt="logo" />
+          <div className="sidebargroup__img">
+            <img src={button.icon} alt="logo" />
+          </div>
           <p>{button.label}</p>
         </Button>
       ))}
