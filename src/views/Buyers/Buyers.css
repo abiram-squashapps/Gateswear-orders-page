@@ -23,3 +23,35 @@
   border-radius: 50%;
   width: 100% !important;
 }
+.successStore {
+  background-color: rgb(219, 255, 219);
+  opacity: 0.9;
+}
+
+.p-toast-message-content {
+  height: 75px !important;
+  text-align: center;
+  display: flex;
+  align-items: center !important;
+  padding: 25px;
+}
+.p-toast-message-text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.p-toast-message-icon-close {
+  margin-top: 50%;
+}
+.p-toast-message-content p {
+  margin-bottom: 50px;
+}
+.p-toast-summary {
+  color: green;
+  padding-bottom: 10px;
+}
+.p-toast-detail {
+  font-size: small;
+}

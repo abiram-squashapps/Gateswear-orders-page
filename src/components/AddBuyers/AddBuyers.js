@@ -11,7 +11,7 @@ import ImgInput from "../TextField/ImgInput";
 import { Button } from "primereact/button";
 import uuid from "uuid/dist/v1";
 
-function AddBuyers({ setShow }) {
+function AddBuyers({ setShow, showSuccess }) {
   const [imgUrl, setImgUrl] = useState("");
   const [formData, setFormData] = useState({
     name: "",
@@ -145,12 +145,22 @@ function AddBuyers({ setShow }) {
       };
       //submit action for add buyer and edit action for edit buyer
       globalState.editThis
-        ? dispatch({
-            type: "EDIT_BUYER",
-            payload: { ...payload, id: globalState.editThis.id },
-          })
-        : dispatch({ type: "ADD_BUYER", payload });
-      setShow(false);
+        ? (() => {
+            dispatch({
+              type: "EDIT_BUYER",
+              payload: { ...payload, id: globalState.editThis.id },
+            });
+            showSuccess("Updated!!", "Byer details got updated");
+            setShow(false);
+          })()
+        : (() => {
+            dispatch({ type: "ADD_BUYER", payload });
+            showSuccess("Buyer Added", "New buyer successfully added !!");
+            setShow(false);
+          })();
+
+      //show toast conditionally
+
       //cleadring editThis prop to make the form default to add buyer
       dispatch({ type: "EDIT_THIS", payload: false });
     } else {

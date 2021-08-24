@@ -21,7 +21,7 @@ function Sidebar() {
       buttons: [
         { label: "Buyers", icon: buyers },
         { label: "Orders", icon: orders },
-        { label: "Subcontractors", icon: subcontractors },
+        { label: "Sub Contractors", icon: subcontractors },
       ],
     },
     {

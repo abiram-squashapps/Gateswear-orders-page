@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./DataTableComponent.css";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 //import { buyers } from "../../constant/buyersData";
-import { Card } from "primereact/card";
+import { Toast } from "primereact/toast";
 import { Button } from "primereact/button";
 import {
   emailTemplate,
@@ -12,7 +12,7 @@ import {
   totalOrderTemplate,
   websiteTemplate,
 } from "./dataTableTemplates";
-import action from "../../assets/images/action.png";
+//import action from "../../assets/images/action.png";
 import { Context } from "../../store/ContextProvider";
 
 function DataTableComponent({ setShow }) {
@@ -21,7 +21,9 @@ function DataTableComponent({ setShow }) {
   const [rows2, setRows2] = useState(10);
   const [buyersArray, setBuyersArray] = useState([]);
   const { globalState, dispatch } = useContext(Context);
+  const toastBC = useRef(null);
 
+  //useEffect to add serial number to the data
   useEffect(() => {
     let buyersData = globalState.buyers.map((item, index) => ({
       ...item,
@@ -30,11 +32,13 @@ function DataTableComponent({ setShow }) {
     setBuyersArray(buyersData);
   }, [globalState.buyers]);
 
+  //pagination customizd from primereact
   const onCustomPage2 = (event) => {
     setFirst2(event.first);
     setRows2(event.rows);
   };
 
+  //template for edit and delete option
   const actionTemplate = (rowData) => {
     return (
       <div className=" actions__container w-full h-3rem flex align-items-center justify-content-center cursor-pointer ">
@@ -61,6 +65,7 @@ function DataTableComponent({ setShow }) {
 
   return (
     <div className="datatable__container">
+      <Toast ref={toastBC}></Toast>
       <Button
         className="filter__btn"
         onClick={(e) => setFilter((prev) => !prev)}
