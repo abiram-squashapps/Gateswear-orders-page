@@ -45,6 +45,8 @@ export const HalfSizeField = ({
           optionLabel={"name"}
           optionValue={"name"}
           onChange={onChange}
+          filter
+          filterBy="name"
           required
         />
       ) : (

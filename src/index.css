@@ -29,3 +29,12 @@ code {
   background-color: tomato;
   color: white;
 }
+::-webkit-scrollbar {
+  width: 5px !important;
+}
+::-webkit-scrollbar-thumb {
+  background: #f6f7f3;
+}
+.p-datatable-scrollable-body::-webkit-scrollbar {
+  width: 5px;
+}

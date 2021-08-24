@@ -143,7 +143,7 @@ function DataTableComponent({ setShow }) {
         <Column
           filter={filter}
           header="Total Orders"
-          className=" text-left"
+          className=" text-center"
           body={totalOrderTemplate}
           style={{ width: "120px" }}
           sortable
@@ -152,7 +152,7 @@ function DataTableComponent({ setShow }) {
           header="Actions"
           body={handleAction}
           className=" text-center"
-          style={{ width: "50px" }}
+          style={{ width: "60px" }}
         ></Column>
       </DataTable>
     </div>

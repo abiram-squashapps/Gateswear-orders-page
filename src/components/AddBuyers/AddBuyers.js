@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import "./AddBuyers.css";
 import { Context } from "../../store/ContextProvider";
 import ErrorMsgDispaly from "../commonComponents/ErrorMsgDispaly";
-
+import { Country, State, City } from "country-state-city";
 import TextFieldComponent, {
   HalfSizeField,
   TextAreaField,
@@ -25,8 +25,8 @@ function AddBuyers({ setShow, showSuccess }) {
     website: "",
   });
   const [city, setCity] = useState("");
-  const [states, setStates] = useState("");
-  const [country, setCountry] = useState("");
+  const [states, setStates] = useState([{ name: "", isoCode: "" }]);
+  const [country, setCountry] = useState([{ name: "", isoCode: "" }]);
   const { globalState, dispatch } = useContext(Context);
   const [formValidity, setFormValidity] = useState(true);
   // checking wheter there is data to edit if any feed it into the fields
@@ -51,32 +51,14 @@ function AddBuyers({ setShow, showSuccess }) {
     }
   }, [globalState]);
 
-  const cities = [
-    { name: "New York", code: "NY" },
-    { name: "Rome", code: "RM" },
-    { name: "London", code: "LDN" },
-    { name: "Istanbul", code: "IST" },
-    { name: "Paris", code: "PRS" },
-  ];
-  const countries = [
-    { name: "Australia", code: "AU" },
-    { name: "Brazil", code: "BR" },
-    { name: "China", code: "CN" },
-    { name: "Egypt", code: "EG" },
-    { name: "France", code: "FR" },
-    { name: "Germany", code: "DE" },
-    { name: "India", code: "IN" },
-    { name: "Japan", code: "JP" },
-    { name: "Spain", code: "ES" },
-    { name: "United States", code: "US" },
-  ];
-  const stateList = [
-    { name: "Maharastra" },
-    { name: "Karnataka" },
-    { name: "Andra" },
-    { name: "TamilNadu" },
-    { name: "Kerala" },
-  ];
+  const countries = Country.getAllCountries();
+  const stateList = State.getStatesOfCountry(country[0].isoCode).length
+    ? State.getStatesOfCountry(country[0].isoCode)
+    : [{ name: "none", isoCode: "NAN" }];
+  const cities = City.getCitiesOfState(country[0].isoCode, states[0].isoCode)
+    .length
+    ? City.getCitiesOfState(country[0].isoCode, states[0].isoCode)
+    : [{ name: "none" }];
 
   const handleFormData = (e) => {
     const { name, value } = e.target;
@@ -89,18 +71,17 @@ function AddBuyers({ setShow, showSuccess }) {
   const handleCityChange = (e) => {
     setCity(e.value);
   };
+  //storing name and isocode to fetch state and city
   const handleCountryChange = (e) => {
-    setCountry(e.value);
-  };
-  const handleStatesChange = (e) => {
-    setStates(e.value);
+    setCountry(countries.filter((i) => i.name === e.value));
   };
 
-  /*  useEffect(() => {
-    validateForm();
-  }, [formData, country, city, states]); */
+  const handleStatesChange = (e) => {
+    setStates(stateList.filter((i) => i.name === e.value));
+  };
 
   const validateForm = () => {
+    //validating by checking whether every fields are entered
     const {
       name,
       contactPerson,
@@ -174,7 +155,7 @@ function AddBuyers({ setShow, showSuccess }) {
   };
 
   return (
-    <div className="p-fluid p-formgrid p-grid px-3 ">
+    <div className="p-fluid p-formgrid p-grid px-3 mb-3 flex flex-column justify-content-around">
       {!formValidity && <ErrorMsgDispaly />}
       <ImgInput imgUrl={imgUrl} setImgUrl={setImgUrl} />
       <TextFieldComponent
@@ -214,8 +195,9 @@ function AddBuyers({ setShow, showSuccess }) {
         />
         <HalfSizeField
           label="Country"
-          value={country}
+          value={country[0].name}
           options={countries}
+          placeholder="Select a Country"
           name="country"
           type="dropDown"
           onChange={handleCountryChange}
@@ -227,7 +209,7 @@ function AddBuyers({ setShow, showSuccess }) {
           options={stateList}
           name="state"
           type="dropDown"
-          value={states}
+          value={states[0].name}
           onChange={handleStatesChange}
         />
         <HalfSizeField

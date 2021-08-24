@@ -43,3 +43,14 @@ input {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2) !important;
 }
+.p-dropdown-filter {
+  border-color: gray;
+  outline: none;
+}
+.p-dropdown-filter-icon {
+  margin-left: -20px;
+  padding-top: 2px;
+}
+.p-dropdown-panel {
+  width: 20%;
+}

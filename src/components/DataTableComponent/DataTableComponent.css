@@ -53,6 +53,7 @@ th input {
 
 .p-dropdown-item {
   margin-bottom: 5px;
+  padding: 5px 0;
 }
 
 .datatable__container {
@@ -68,6 +69,7 @@ th {
 td {
   font-size: 15px;
   text-align: left;
+  padding: 5px 10px 5px 0;
 }
 
 .p-datatable-header {

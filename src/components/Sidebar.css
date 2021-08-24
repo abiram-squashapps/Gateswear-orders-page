@@ -10,9 +10,9 @@
   font-size: 32px;
   font-weight: 700;
   color: white;
-  margin: 0;
+
   border-bottom: 1px dashed white;
-  margin: 10px 5px 10px 30px;
+  margin: 30px 5px 10px 30px;
 }
 
 @media (max-width: 1200px) {
@@ -21,3 +21,8 @@
     width: 275px;
   }
 }
+@media (max-width: 800px) {
+  .hide__card {
+    display: none !important;
+  }
+} ;
