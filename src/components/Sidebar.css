@@ -1,8 +1,10 @@
 #sidebar__card {
   background: #1b283b !important;
   height: 100vh;
-  width: 17vw;
+  min-width: 375px;
+  width: 375px;
   overflow-y: auto;
+  font-size: 18px;
 }
 .sidebar__header h1 {
   font-size: 32px;
@@ -11,4 +13,11 @@
   margin: 0;
   border-bottom: 1px dashed white;
   margin: 10px 5px 10px 30px;
+}
+
+@media (max-width: 1200px) {
+  #sidebar__card {
+    min-width: 275px;
+    width: 275px;
+  }
 }

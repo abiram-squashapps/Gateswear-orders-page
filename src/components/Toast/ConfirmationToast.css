@@ -1,0 +1,8 @@
+.container {
+  align-items: center !important;
+  width: 600px;
+  padding: 25px 20px 50px 20px !important;
+  background-color: white;
+  box-shadow: 0 10px 5px 5px rgba(0, 0, 0, 0.2);
+  background-color: rgb(248, 200, 191);
+}

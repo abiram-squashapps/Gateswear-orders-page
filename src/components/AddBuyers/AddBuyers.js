@@ -29,7 +29,7 @@ function AddBuyers({ setShow, showSuccess }) {
   const [country, setCountry] = useState("");
   const { globalState, dispatch } = useContext(Context);
   const [formValidity, setFormValidity] = useState(true);
-
+  // checking wheter there is data to edit if any feed it into the fields
   useEffect(() => {
     if (globalState.editThis) {
       const { editThis } = globalState;
@@ -47,6 +47,7 @@ function AddBuyers({ setShow, showSuccess }) {
       setImgUrl(editThis.logo);
       setCountry(editThis.country);
       setStates(editThis.states);
+      setCity(editThis.city);
     }
   }, [globalState]);
 
@@ -141,6 +142,10 @@ function AddBuyers({ setShow, showSuccess }) {
         logo: imgUrl,
         ongoing: true,
         totalOrers: `+${Math.round(Math.random() * 300)}k`,
+        city,
+        states,
+        country,
+
         id: uuid(),
       };
       //submit action for add buyer and edit action for edit buyer
@@ -266,7 +271,7 @@ function AddBuyers({ setShow, showSuccess }) {
           <div className="p-col-6 mt-7">
             <Button
               label="Cancel"
-              className="cancel__btn mr-3"
+              className="cancel__btn mr-3 btn"
               onClick={(e) => {
                 setShow(false);
                 dispatch({ type: "EDIT_THIS", payload: false });
@@ -274,7 +279,7 @@ function AddBuyers({ setShow, showSuccess }) {
             />
             <Button
               label={globalState.editThis ? "Update" : "Submit"}
-              className="submit__btn"
+              className="submit__btn btn"
               /* disabled={!formValidity} */
               onClick={handleSubmit}
             />

@@ -2,7 +2,8 @@ import "./dataTableTemplates.css";
 import { Dropdown } from "primereact/dropdown";
 import website from "../../assets/images/website.png";
 import email from "../../assets/images/email.png";
-import action from "../../assets/images/action.png";
+//import action from "../../assets/images/action.png";
+import { Button } from "primereact/button";
 
 export const nameTemplate = (rowData) => {
   return (
@@ -69,14 +70,6 @@ export const totalOrderTemplate = (rowData) => {
   );
 };
 
-export const actionTemplate = (setShow) => {
-  return (
-    <div className="w-full h-full flex align-items-center justify-content-center">
-      <img src={action} alt="..." />
-    </div>
-  );
-};
-
 export const websiteTemplate = (rowData) => {
   return (
     <div className="name__template__container ">
@@ -91,6 +84,36 @@ export const emailTemplate = (rowData) => {
     <div className="name__template__container ">
       <img src={email} alt="e" className="mr-2" />
       <span>{rowData.emailId}</span>
+    </div>
+  );
+};
+
+export const actionTemplate = (
+  rowData,
+  setShow,
+  dispatch,
+  showConfirm,
+  toastBC
+) => {
+  return (
+    <div className=" actions__container w-full h-3rem flex align-items-center justify-content-center cursor-pointer ">
+      <div className="flex flex-column">
+        <Button
+          icon="pi pi-pencil"
+          className="white__button"
+          onClick={(e) => {
+            setShow(true);
+            dispatch({ type: "EDIT_THIS", payload: rowData });
+          }}
+        />
+        <Button
+          icon="pi pi-trash"
+          className="white__button"
+          onClick={(e) => {
+            showConfirm(toastBC, dispatch, rowData);
+          }}
+        />
+      </div>
     </div>
   );
 };

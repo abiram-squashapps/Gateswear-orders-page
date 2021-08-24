@@ -11,9 +11,11 @@ import {
   template2,
   totalOrderTemplate,
   websiteTemplate,
+  actionTemplate,
 } from "./dataTableTemplates";
 //import action from "../../assets/images/action.png";
 import { Context } from "../../store/ContextProvider";
+import { showConfirm } from "../Toast/ConfirmationToast";
 
 function DataTableComponent({ setShow }) {
   const [filter, setFilter] = useState(false);
@@ -38,40 +40,24 @@ function DataTableComponent({ setShow }) {
     setRows2(event.rows);
   };
 
-  //template for edit and delete option
-  const actionTemplate = (rowData) => {
-    return (
-      <div className=" actions__container w-full h-3rem flex align-items-center justify-content-center cursor-pointer ">
-        <div className="flex flex-column">
-          <Button
-            icon="pi pi-pencil"
-            className="white__button"
-            onClick={(e) => {
-              setShow(true);
-              dispatch({ type: "EDIT_THIS", payload: rowData });
-            }}
-          />
-          <Button
-            icon="pi pi-trash"
-            className="white__button"
-            onClick={(e) => {
-              dispatch({ type: "DELETE_BUYER", payload: rowData.id });
-            }}
-          />
-        </div>
-      </div>
-    );
+  //action column's template needed some more data be passed on so created a helper function
+  const handleAction = (rowData) => {
+    return actionTemplate(rowData, setShow, dispatch, showConfirm, toastBC);
   };
 
   return (
     <div className="datatable__container">
-      <Toast ref={toastBC}></Toast>
+      <Toast
+        ref={toastBC}
+        position="top-center"
+        className="contentClassName"
+      ></Toast>
       <Button
-        className="filter__btn"
+        className="filter__btn btn"
         onClick={(e) => setFilter((prev) => !prev)}
         icon={!filter ? "pi pi-filter" : "pi pi-filter-slash"}
       />
-      <Button label="Add new" className="addBuyer__btn" onClick={setShow} />
+      <Button label="Add new" className="addBuyer__btn btn" onClick={setShow} />
       <DataTable
         value={buyersArray}
         header="Buyers"
@@ -83,7 +69,8 @@ function DataTableComponent({ setShow }) {
         rows={rows2}
         onPage={onCustomPage2}
         paginatorClassName="p-jc-end"
-        autoLayout
+        scrollable={true}
+        style={{ width: "100%" }}
       >
         <Column field="slNo" header="sl No" className="w-3rem slNo"></Column>
         <Column
@@ -93,6 +80,7 @@ function DataTableComponent({ setShow }) {
           sortable
           className="text-left"
           filter={filter}
+          style={{ width: "150px" }}
         ></Column>
         <Column
           field="contactPerson"
@@ -100,12 +88,14 @@ function DataTableComponent({ setShow }) {
           filter={filter}
           className=" text-left"
           sortable
+          style={{ width: "150px" }}
         ></Column>
         <Column
           field="contactNumber"
           header="contact Number"
           filter={filter}
           className=" text-left"
+          style={{ width: "150px" }}
           sortable
         ></Column>
         <Column
@@ -113,6 +103,7 @@ function DataTableComponent({ setShow }) {
           header="Address"
           filter={filter}
           className="text-left w-15rem"
+          style={{ width: "250px" }}
           sortable
         ></Column>
         <Column
@@ -120,6 +111,7 @@ function DataTableComponent({ setShow }) {
           field="phone"
           header="phone"
           className=" text-left"
+          style={{ width: "120px" }}
           sortable
         ></Column>
         <Column
@@ -127,6 +119,7 @@ function DataTableComponent({ setShow }) {
           field="faxNo"
           header="Fax No"
           className=" text-left"
+          style={{ width: "120px" }}
           sortable
         ></Column>
         <Column
@@ -135,6 +128,7 @@ function DataTableComponent({ setShow }) {
           header="email"
           className=" text-left"
           body={emailTemplate}
+          style={{ width: "250px" }}
           sortable
         ></Column>
         <Column
@@ -143,6 +137,7 @@ function DataTableComponent({ setShow }) {
           header="Website"
           className=" text-left"
           body={websiteTemplate}
+          style={{ width: "150px" }}
           sortable
         ></Column>
         <Column
@@ -150,12 +145,14 @@ function DataTableComponent({ setShow }) {
           header="Total Orders"
           className=" text-left"
           body={totalOrderTemplate}
+          style={{ width: "120px" }}
           sortable
         ></Column>
         <Column
           header="Actions"
-          body={actionTemplate}
+          body={handleAction}
           className=" text-center"
+          style={{ width: "50px" }}
         ></Column>
       </DataTable>
     </div>

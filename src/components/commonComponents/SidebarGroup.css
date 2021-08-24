@@ -23,6 +23,7 @@
   display: flex;
   justify-content: flex-start;
   padding: 0 1rem;
+  font-size: 18px !important;
 }
 .sidebargroup__button:focus {
   background: #3d495b;

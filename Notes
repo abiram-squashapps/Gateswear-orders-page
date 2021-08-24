@@ -3,3 +3,10 @@ City quest
     2.date range picker
     3.carousel
     4.card
+todays work (24/8/21):
+    1. fixed table scrolablity
+    2. changed font size to match the design
+    3. changed side bar width design's width
+    4. changing textFirlds height and font sizes --> added overlay for dialogbox --> button style fixes
+    5. Add confirmation toast
+    6. Add dynamic data to dropdowns
