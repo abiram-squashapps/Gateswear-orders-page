@@ -1,6 +1,7 @@
 import React from "react";
 import "./Sidebar.css";
 import { Card } from "primereact/card";
+import { Sidebar as SideBar } from "primereact/sidebar";
 import SidebarGroup from "./commonComponents/SidebarGroup";
 import analytics from "../assets/images/analytics.png";
 import buyers from "../assets/images/buyers.png";
@@ -8,7 +9,7 @@ import orders from "../assets/images/orders.png";
 import subcontractors from "../assets/images/subcontractors.png";
 import stores from "../assets/images/stores.png";
 
-function Sidebar() {
+function Sidebar(props) {
   const sideBarFields = [
     {
       heading: "Dashboard",
@@ -40,7 +41,12 @@ function Sidebar() {
     },
   ];
   return (
-    <Card id="sidebar__card" className="hide__card">
+    <SideBar
+      visible={props.showSidebar}
+      onHide={(e) => props.setShowSidebar(false)}
+      id="sidebar__card"
+      className="hide__card"
+    >
       <div className="sidebar__header">
         <h1>Gates Wears</h1>
       </div>
@@ -52,7 +58,7 @@ function Sidebar() {
           key={item.heading}
         />
       ))}
-    </Card>
+    </SideBar>
   );
 }
 

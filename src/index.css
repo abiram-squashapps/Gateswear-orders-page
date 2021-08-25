@@ -33,7 +33,7 @@ code {
   width: 5px !important;
 }
 ::-webkit-scrollbar-thumb {
-  background: #f6f7f3;
+  background: rgb(212, 210, 210);
 }
 .p-datatable-scrollable-body::-webkit-scrollbar {
   width: 5px;

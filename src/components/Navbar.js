@@ -3,10 +3,13 @@ import "./Navbar.css";
 import { InputText } from "primereact/inputtext";
 import ProfileIcon from "./ProfileIcon";
 
-function Navbar() {
+function Navbar({ showSidebar, setShowSidebar }) {
   return (
     <div className="navbar">
-      <span className="p-input-icon-left w-full flex align-items-center">
+      {!showSidebar && (
+        <i onClick={(e) => setShowSidebar(true)} className="pi pi-bars"></i>
+      )}
+      <span className="p-input-icon-left flex align-items-center">
         <i className="pi pi-search" />
         <InputText placeholder="Search" />
       </span>

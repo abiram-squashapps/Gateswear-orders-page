@@ -11,3 +11,10 @@ todays work (24/8/21):
     5. Add confirmation toast
     6. Add dynamic data to dropdowns
     7. Add search field in dropdowns
+
+todays work (25/08/2021):
+    1. studying for the textFirlds
+    2. Add menu component into actions tab in the datatable
+    fuction(a/,b){
+        return a>b
+    }

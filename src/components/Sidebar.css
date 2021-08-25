@@ -6,6 +6,17 @@
   overflow-y: auto;
   font-size: 18px;
 }
+#sidebar__card span {
+  background-color: #f2f2f2 !important;
+  border-radius: 50%;
+  color: "a";
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .sidebar__header h1 {
   font-size: 32px;
   font-weight: 700;
@@ -21,8 +32,8 @@
     width: 275px;
   }
 }
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .hide__card {
     display: none !important;
   }
-} ;
+} ; */
