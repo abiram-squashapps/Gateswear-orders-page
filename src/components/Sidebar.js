@@ -1,6 +1,5 @@
 import React from "react";
 import "./Sidebar.css";
-import { Card } from "primereact/card";
 import { Sidebar as SideBar } from "primereact/sidebar";
 import SidebarGroup from "./commonComponents/SidebarGroup";
 import analytics from "../assets/images/analytics.png";
@@ -46,6 +45,8 @@ function Sidebar(props) {
       onHide={(e) => props.setShowSidebar(false)}
       id="sidebar__card"
       className="hide__card"
+      dismissable={false}
+      modal={false}
     >
       <div className="sidebar__header">
         <h1>Gates Wears</h1>

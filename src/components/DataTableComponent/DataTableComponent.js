@@ -16,12 +16,14 @@ import {
 //import action from "../../assets/images/action.png";
 import { Context } from "../../store/ContextProvider";
 import { showConfirm } from "../Toast/ConfirmationToast";
+import { useSelector } from "react-redux";
 
 function DataTableComponent({ setShow }) {
   const [filter, setFilter] = useState(false);
   const [first2, setFirst2] = useState(0);
   const [rows2, setRows2] = useState(10);
   const [buyersArray, setBuyersArray] = useState([]);
+  const globalFilter = useSelector((state) => state);
   const { globalState, dispatch } = useContext(Context);
   const toastBC = useRef(null);
 
@@ -71,6 +73,7 @@ function DataTableComponent({ setShow }) {
         paginatorClassName="p-jc-end"
         scrollable={true}
         style={{ width: "100%" }}
+        globalFilter={globalFilter}
       >
         <Column field="slNo" header="sl No" className="w-3rem slNo"></Column>
         <Column

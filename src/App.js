@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    windowWidth < 892 ? setShowSidebar(false) : setShowSidebar(true);
+    windowWidth < 892 ? setShowSidebar(false) : console.log();
   }, [windowWidth]);
   //console.log(windowWidth);
   return (

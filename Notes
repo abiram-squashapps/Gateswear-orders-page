@@ -13,8 +13,9 @@ todays work (24/8/21):
     7. Add search field in dropdowns
 
 todays work (25/08/2021):
-    1. studying for the textFirlds
-    2. Add menu component into actions tab in the datatable
+    1. replaced card component with sidebar component
+    2. made the page completely responsive
+    3. exploring redux concepts
     fuction(a/,b){
         return a>b
     }
