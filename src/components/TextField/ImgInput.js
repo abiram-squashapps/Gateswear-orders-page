@@ -26,7 +26,6 @@ function ImgInput({ imgUrl, setImgUrl }) {
         id="address"
         type="file"
         onChange={(e) => setImgUrl(URL.createObjectURL(e.target.files[0]))}
-        onClick={(e) => (imgUrl ? setImgUrl("") : null)}
       />
     </div>
   );

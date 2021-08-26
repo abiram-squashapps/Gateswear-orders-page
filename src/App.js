@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import ContextProvider from "./store/ContextProvider";
 import Buyers from "./views/Buyers/Buyers";
+import Users from "./views/Buyers/Users/Users";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(true);
@@ -31,7 +33,17 @@ function App() {
       <div className={showSidebar ? "main-content" : "main-content-full"}>
         <ContextProvider>
           <Navbar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
-          <Buyers />
+          <Switch>
+            <Route
+              path="/Gateswear-orders-page/users"
+              component={Users}
+              exact
+            />
+
+            <Route path="/">
+              <Buyers />
+            </Route>
+          </Switch>
         </ContextProvider>
       </div>
     </div>

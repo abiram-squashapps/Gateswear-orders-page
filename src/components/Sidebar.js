@@ -36,7 +36,7 @@ function Sidebar(props) {
     {
       heading: "Global settings ",
       subTitle: "other details",
-      buttons: [{ label: "Setting", icon: stores }],
+      buttons: [{ label: "Setting", icon: stores , }],
     },
   ];
   return (
