@@ -31,7 +31,7 @@ function Buyers() {
         }}
         header={globalState.editThis ? "Edit Buyer" : "Add buyers"}
       >
-        <Suspense>
+        <Suspense fallback={<div>loading pages...</div>}>
           <AddBuyers setShow={setShow} showSuccess={showSuccess} />
         </Suspense>
       </Dialog>
