@@ -8,7 +8,7 @@ import Users from "./views/Buyers/Users/Users";
 import { Route, Switch } from "react-router-dom";
 
 function App() {
-  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   const [windowWidth, setWindowWidth] = useState(892);
 

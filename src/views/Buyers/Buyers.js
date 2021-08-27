@@ -1,14 +1,14 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState, lazy, Suspense } from "react";
 import DataTableComponent from "../../components/DataTableComponent/DataTableComponent";
 import "./Buyers.css";
 import { Dialog } from "primereact/dialog";
-import AddBuyers from "../../components/AddBuyers/AddBuyers";
 import { Context } from "../../store/ContextProvider";
 import { Toast } from "primereact/toast";
 
+const AddBuyers = lazy(() => import("../../components/AddBuyers/AddBuyers"));
 function Buyers() {
   const toast = useRef(null);
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const { globalState, dispatch } = useContext(Context);
 
   function showSuccess(summary, detail) {
@@ -31,7 +31,9 @@ function Buyers() {
         }}
         header={globalState.editThis ? "Edit Buyer" : "Add buyers"}
       >
-        <AddBuyers setShow={setShow} showSuccess={showSuccess} />
+        <Suspense>
+          <AddBuyers setShow={setShow} showSuccess={showSuccess} />
+        </Suspense>
       </Dialog>
       <DataTableComponent setShow={setShow} />
     </div>
