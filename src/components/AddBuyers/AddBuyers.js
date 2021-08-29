@@ -250,7 +250,7 @@ function AddBuyers({ setShow, showSuccess }) {
         />
         <div className="flex justify-content-between w-full px-2">
           <div className="p-col-6 small__orangefont">+ Add address</div>
-          <div className="p-col-6 mt-7">
+          <div className="p-col-6 mt-3">
             <Button
               label="Cancel"
               className="cancel__btn mr-3 btn"

@@ -31,7 +31,11 @@ function Buyers() {
         }}
         header={globalState.editThis ? "Edit Buyer" : "Add buyers"}
       >
-        <Suspense fallback={<div>loading pages...</div>}>
+        <Suspense fallback={<div class="center1">
+
+        <img src="squash-logo.svg" alt="squash apps.." />
+
+      </div>}>
           <AddBuyers setShow={setShow} showSuccess={showSuccess} />
         </Suspense>
       </Dialog>

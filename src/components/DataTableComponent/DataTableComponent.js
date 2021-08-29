@@ -75,10 +75,10 @@ function DataTableComponent({ setShow }) {
         style={{ width: "100%" }}
         globalFilter={globalFilter}
       >
-        <Column field="slNo" header="sl No" className="w-3rem slNo"></Column>
+        <Column field="slNo" header="S No" className="w-3rem slNo"></Column>
         <Column
           field="name"
-          header="name"
+          header="Name"
           body={nameTemplate}
           sortable
           className="text-left"
@@ -87,7 +87,7 @@ function DataTableComponent({ setShow }) {
         ></Column>
         <Column
           field="contactPerson"
-          header="contact person"
+          header="Contact person"
           filter={filter}
           className=" text-left"
           sortable
@@ -95,7 +95,7 @@ function DataTableComponent({ setShow }) {
         ></Column>
         <Column
           field="contactNumber"
-          header="contact Number"
+          header="Contact Number"
           filter={filter}
           className=" text-left"
           style={{ width: "150px" }}
@@ -112,7 +112,7 @@ function DataTableComponent({ setShow }) {
         <Column
           filter={filter}
           field="phone"
-          header="phone"
+          header="Phone"
           className=" text-left"
           style={{ width: "120px" }}
           sortable
@@ -128,7 +128,7 @@ function DataTableComponent({ setShow }) {
         <Column
           filter={filter}
           field="emailId"
-          header="email"
+          header="Email ID"
           className=" text-left"
           body={emailTemplate}
           style={{ width: "250px" }}
