@@ -6,9 +6,13 @@ import { Context } from "../../store/ContextProvider";
 import { Toast } from "primereact/toast";
 
 const AddBuyers = lazy(() => import("../../components/AddBuyers/AddBuyers"));
+
 function Buyers() {
+
   const toast = useRef(null);
+
   const [show, setShow] = useState(false);
+
   const { globalState, dispatch } = useContext(Context);
 
   function showSuccess(summary, detail) {
@@ -21,8 +25,11 @@ function Buyers() {
   }
 
   return (
+
     <div>
+
       <Toast ref={toast} className="successStore"></Toast>
+
       <Dialog
         visible={show}
         onHide={(e) => {
@@ -31,11 +38,14 @@ function Buyers() {
         }}
         header={globalState.editThis ? "Edit Buyer" : "Add buyers"}
       >
-        <Suspense fallback={<div class="center1">
+        
+        <Suspense fallback={
+          <div class="center1">
 
-        <img src="squash-logo.svg" alt="squash apps.." />
+            <img src="squash-logo.svg" alt="squash apps.." />
 
-      </div>}>
+          </div>
+        }>
           <AddBuyers setShow={setShow} showSuccess={showSuccess} />
         </Suspense>
       </Dialog>

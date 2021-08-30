@@ -7,7 +7,7 @@
   font-size: 18px;
 }
 #sidebar__card span {
-  background-color: #f2f2f2 !important;
+
   border-radius: 50%;
   color: "a";
   width: 30px;
@@ -16,6 +16,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#sidebar__card .pi-times:before{
+  color:white;
 }
 .sidebar__header h1 {
   font-size: 32px;

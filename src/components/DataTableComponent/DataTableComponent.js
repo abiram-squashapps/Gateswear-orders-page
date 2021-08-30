@@ -19,6 +19,7 @@ import { showConfirm } from "../Toast/ConfirmationToast";
 import { useSelector } from "react-redux";
 
 function DataTableComponent({ setShow }) {
+
   const [filter, setFilter] = useState(false);
   const [first2, setFirst2] = useState(0);
   const [rows2, setRows2] = useState(10);
@@ -49,17 +50,20 @@ function DataTableComponent({ setShow }) {
 
   return (
     <div className="datatable__container">
+      
       <Toast
         ref={toastBC}
         position="top-center"
         className="contentClassName"
       ></Toast>
+
       <Button
         className="filter__btn btn"
         onClick={(e) => setFilter((prev) => !prev)}
         icon={!filter ? "pi pi-filter" : "pi pi-filter-slash"}
       />
       <Button label="Add new" className="addBuyer__btn btn" onClick={setShow} />
+
       <DataTable
         value={buyersArray}
         header="Buyers"
@@ -76,6 +80,7 @@ function DataTableComponent({ setShow }) {
         globalFilter={globalFilter}
       >
         <Column field="slNo" header="S No" className="w-3rem slNo"></Column>
+
         <Column
           field="name"
           header="Name"
@@ -85,6 +90,7 @@ function DataTableComponent({ setShow }) {
           filter={filter}
           style={{ width: "150px" }}
         ></Column>
+
         <Column
           field="contactPerson"
           header="Contact person"
@@ -93,6 +99,7 @@ function DataTableComponent({ setShow }) {
           sortable
           style={{ width: "150px" }}
         ></Column>
+
         <Column
           field="contactNumber"
           header="Contact Number"
@@ -101,6 +108,7 @@ function DataTableComponent({ setShow }) {
           style={{ width: "150px" }}
           sortable
         ></Column>
+
         <Column
           field="address"
           header="Address"
@@ -109,6 +117,7 @@ function DataTableComponent({ setShow }) {
           style={{ width: "250px" }}
           sortable
         ></Column>
+
         <Column
           filter={filter}
           field="phone"
@@ -117,6 +126,7 @@ function DataTableComponent({ setShow }) {
           style={{ width: "120px" }}
           sortable
         ></Column>
+
         <Column
           filter={filter}
           field="faxNo"
@@ -125,6 +135,7 @@ function DataTableComponent({ setShow }) {
           style={{ width: "120px" }}
           sortable
         ></Column>
+
         <Column
           filter={filter}
           field="emailId"
@@ -134,6 +145,7 @@ function DataTableComponent({ setShow }) {
           style={{ width: "250px" }}
           sortable
         ></Column>
+
         <Column
           filter={filter}
           field="website"
@@ -143,6 +155,7 @@ function DataTableComponent({ setShow }) {
           style={{ width: "150px" }}
           sortable
         ></Column>
+
         <Column
           filter={filter}
           header="Total Orders"
@@ -151,12 +164,14 @@ function DataTableComponent({ setShow }) {
           style={{ width: "120px" }}
           sortable
         ></Column>
+
         <Column
           header="Actions"
           body={handleAction}
           className=" text-center"
           style={{ width: "60px" }}
         ></Column>
+
       </DataTable>
     </div>
   );
